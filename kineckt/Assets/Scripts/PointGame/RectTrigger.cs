@@ -5,28 +5,32 @@ using UnityEngine.UI;
 
 public class RectTrigger : MonoBehaviour
 {
-    [Range(0, 1000)]
+    [Range(0,10)]
     public int mSensevity = 5;
 
     public bool mIsTriggered = false;
 
-    private Camera mCamera = null;
+    public Color HighLigthColor;
+    public Color BaseColor;
+    public int id;
 
+    private Camera mCamera = null;
     private RectTransform mRectTransform = null;
     private Image mImage = null;
 
     private void Awake()
     {
-       Control_Depth.OnTriggerPoints += OnTriggerPoints;
+        MesureDepth.OnTriggerPoints += OnTriggerPoints;
 
         mCamera = Camera.main;
+
         mRectTransform = GetComponent<RectTransform>();
         mImage = GetComponent<Image>();
     }
 
     private void OnDestroy()
     {
-        Control_Depth.OnTriggerPoints -= OnTriggerPoints;
+        MesureDepth.OnTriggerPoints -= OnTriggerPoints;
     }
 
     private void OnTriggerPoints(List<Vector2> triggerPoints)
@@ -36,26 +40,22 @@ public class RectTrigger : MonoBehaviour
 
         int count = 0;
 
-        foreach (Vector2 point in triggerPoints)
+        foreach(Vector2 point in triggerPoints)
         {
-            Vector2 flippedY = new Vector2(point.x,  point.y);
-       
+            Vector2 flippedY = new Vector2(point.x, mCamera.pixelHeight - point.y);
             if (RectTransformUtility.RectangleContainsScreenPoint(mRectTransform, flippedY))
                 count++;
         }
-        
-        Debug.Log(count);
 
-        if (count > mSensevity)
+        if(count > mSensevity)
         {
-
             mIsTriggered = true;
-            mImage.color = Color.red;
+            mImage.color = HighLigthColor;
         }
-        else
+        else 
         {
             mIsTriggered = false;
-            mImage.color = Color.gray;
+            mImage.color = BaseColor;
         }
     }
-}
+} 

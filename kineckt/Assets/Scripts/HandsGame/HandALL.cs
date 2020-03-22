@@ -119,8 +119,8 @@ public class HandALL : MonoBehaviour
                 if (rlong <= 0.7 && llong <= 1.15 && llong > 0.7) Kinect.score += 80;
                 if (rlong <= 0.7 && llong <= 0.7) Kinect.score += 100;
 
-                //Debug.Log("Left Time: " + L_TimeToComb);
-                //Debug.Log("Right Time: " + R_TimeToComb);
+                Debug.Log("Left Time: " + L_TimeToComb);
+                Debug.Log("Right Time: " + R_TimeToComb);
                 L_TimeToComb = R_TimeToComb = 0;
 
                 screenon = false;
@@ -152,10 +152,10 @@ public class HandALL : MonoBehaviour
         byte[] bytes = texture.EncodeToPNG();
         Object.Destroy(texture);
 
-        if (pos == 0) { File.WriteAllBytes(Application.dataPath + "/Gallery/pos1/SavedScreen" + POSnum1 +".png", bytes); POSnum1++; }
-        if (pos == 1) { File.WriteAllBytes(Application.dataPath + "/Gallery/pos2/SavedScreen" + POSnum2 +".png", bytes); POSnum2++; }
-        if (pos == 2) { File.WriteAllBytes(Application.dataPath + "/Gallery/pos3/SavedScreen3.png", bytes); POSnum3++; }
-        if (pos == 3) { File.WriteAllBytes(Application.dataPath + "/Gallery/pos4/SavedScreen4.png", bytes); POSnum4++; }
-        if (pos == 4) { File.WriteAllBytes(Application.dataPath + "/Gallery/pos5/SavedScreen5.png", bytes); POSnum5++; }
+        if (pos == 0) { File.WriteAllBytes(Application.dataPath + "/Gallery/pos1/SavedScreen" + POSnum1 + ".png", bytes); POSnum1++; }
+        if (pos == 1) { File.WriteAllBytes(Application.dataPath + "/Gallery/pos2/SavedScreen" + POSnum2 + ".png", bytes); POSnum2++; }
+        if (pos == 2) { File.WriteAllBytes(Application.dataPath + "/Gallery/pos3/SavedScreen" + POSnum3 + ".png", bytes); POSnum3++; }
+        if (pos == 3) { File.WriteAllBytes(Application.dataPath + "/Gallery/pos4/SavedScreen" + POSnum4 + ".png", bytes); POSnum4++; }
+        if (pos == 4) { File.WriteAllBytes(Application.dataPath + "/Gallery/pos5/SavedScreen" + POSnum5 + ".png", bytes); POSnum5++; }
     }
 }

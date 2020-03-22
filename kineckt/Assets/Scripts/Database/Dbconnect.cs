@@ -12,8 +12,8 @@ public class Dbconnect : MonoBehaviour
     public List<ItemDb> _items = new List<ItemDb>();
     public IDbConnection _dbconn;
     public IDbCommand _dbcmd;
-    IDataReader _reader;
-    string _sqlQuery;
+    public IDataReader _reader;
+    public string _sqlQuery;
     string _conn;
     void Start()
     {
@@ -98,7 +98,7 @@ public class Dbconnect : MonoBehaviour
     {
         int index = transform.GetSiblingIndex();
         Dbconnect bd = Camera.main.GetComponent<Dbconnect>();
-        Debug.Log(bd._items[index]._id);
+        //Debug.Log(bd._items[index]._id);
         _conn = "URI=file:" + Application.dataPath + "/VRdb.s3db"; //Path to database.
         set_connection(_conn);
         _sqlQuery = "DELETE FROM results WHERE id_player='" + bd._items[index]._id + "'";

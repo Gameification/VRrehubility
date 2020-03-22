@@ -27,7 +27,6 @@ public class PauseMenu : MonoBehaviour
     public void GoContin()
     {
         canvas.SetActive(false);
-
         Pause.pause = false;
     }
 }

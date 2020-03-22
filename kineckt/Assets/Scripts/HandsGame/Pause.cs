@@ -13,7 +13,6 @@ public class Pause : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas2.SetActive(false);
         canvas1.SetActive(true);
         
     }
@@ -21,12 +20,13 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if (canvas2.activeSelf == false) { canvas2.SetActive(true);  pause = true; }
-            else { canvas2.SetActive(false);  pause = false; }
+           
+            if (canvas2.transform.GetChild(0).gameObject.activeSelf == false) { canvas2.transform.GetChild(0).gameObject.SetActive(true); pause = true; }
+            else { canvas2.transform.GetChild(0).gameObject.SetActive(false); pause = false; }
 
-            
+
             if (oldValue < scroll.value)
             {
                 Kinect.velocityX += scroll.value * 100f;
@@ -41,6 +41,11 @@ public class Pause : MonoBehaviour
         }
     }
 
-    
-    
+    private void OnGUI()
+    {
+        
+    }
+
+
+
 }
