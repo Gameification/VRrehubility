@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PointGame.unity
     guid: 1529b535605a994479f1b084ad94aee9
+  - enabled: 1
+    path: Assets/Scenes/SelectPart.unity
+    guid: 6e2cee7b861f23f4d95770bebf8b596e
   m_configObjects: {}

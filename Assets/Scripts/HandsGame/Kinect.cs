@@ -47,7 +47,7 @@ public class Kinect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textscore.text = "Score: " + score;
+        if(textscore != null) textscore.text = "Score: " + score;
     }
 
    
